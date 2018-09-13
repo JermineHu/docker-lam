@@ -17,7 +17,7 @@ RUN apt-get update -qy && \
            /var/lib/apt/lists/* \
            /var/tmp/*
 
-ARG LDAP_ACCOUNT_MANAGER_VERSION=6.5.RC1
+ARG LDAP_ACCOUNT_MANAGER_VERSION=6.3
 
 ENV LDAP_ACCOUNT_MANAGER_VERSION=$LDAP_ACCOUNT_MANAGER_VERSION
 
