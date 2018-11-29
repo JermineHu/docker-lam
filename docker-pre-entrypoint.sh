@@ -31,10 +31,10 @@ sed -i -f- /var/www/html/config/windows_samba4.conf <<- EOF
 	s|^ServerURL:.*|ServerURL: ldap://${LDAP_HOST}:389|;
 	s|^timeZone:.*|timeZone: ${LAM_TIMEZONE}|;
 	s|^treesuffix:.*|treesuffix: ${LDAP_BASE_DN}|;
-	s|^types: suffix_group:.*|types: suffix_group: CN=Users,${LDAP_BASE_DN}|;
-	s|^types: suffix_host:.*|types: suffix_host: CN=Computers,${LDAP_BASE_DN}|;
+	s|^types: suffix_group:.*|types: suffix_group: ${LDAP_BASE_DN}|;
+	s|^types: suffix_host:.*|types: suffix_host: ${LDAP_BASE_DN}|;
 	s|^types: suffix_smbDomain:.*|types: suffix_smbDomain: ${LDAP_BASE_DN}|;
-	s|^types: suffix_user:.*|types: suffix_user: CN=Users,${LDAP_BASE_DN}|;
+	s|^types: suffix_user:.*|types: suffix_user: ${LDAP_BASE_DN}|;
 EOF
 
 exec "$@"
