@@ -27,6 +27,13 @@ docker run -d --restart unless-stopped \
 -p 1001:80 \
 --name lam \
 --link openldap:ldap  \
-Jermine/lam
+-e LAM_LANG="zh_CN" \
+-e LAM_PASSWORD="passwdxxx" \
+-e LAM_TIMEZONE="Asia/Shanghai" \
+-e LDAP_DOMAIN="com" \
+-e LDAP_PASSWORD="passwdxxx" \
+-e LDAP_BASE_DN="ou=dev,dc=sample,dc=com" \
+-e LDAP_USER="cn=admin,dc=com" \
+jermine/lam
 ```
 
