@@ -14,7 +14,9 @@ export LDAP_USER="${LDAP_USER:=cn=Administrator,cn=Users,${LDAP_BASE_DN}}"
 
 set -- "/docker-entrypoint.sh" "$@"
 
-if [ ! -f "/data/filename" ];then
+if [ ! -f "/tmp/lock.txt" ];then
+
+touch /tmp/lock.txt
 
 sed -i -f- /var/www/html/config/config.cfg <<- EOF
 	s|^password:.*|password: ${LAM_PASSWORD_SSHA}|;
