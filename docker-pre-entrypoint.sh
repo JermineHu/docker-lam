@@ -41,6 +41,8 @@ sed -i -f- /var/www/html/config/windows_samba4.conf <<- EOF
 	s|^types: suffix_user:.*|types: suffix_user: ${LDAP_BASE_DN}|;
 EOF
 
+fi
+
 exec "$@"
 
-fi
+
