@@ -14,6 +14,8 @@ export LDAP_USER="${LDAP_USER:=cn=Administrator,cn=Users,${LDAP_BASE_DN}}"
 
 set -- "/docker-entrypoint.sh" "$@"
 
+if [ ! -f "/data/filename" ];then
+
 sed -i -f- /var/www/html/config/config.cfg <<- EOF
 	s|^password:.*|password: ${LAM_PASSWORD_SSHA}|;
 EOF
@@ -38,3 +40,5 @@ sed -i -f- /var/www/html/config/windows_samba4.conf <<- EOF
 EOF
 
 exec "$@"
+
+fi
